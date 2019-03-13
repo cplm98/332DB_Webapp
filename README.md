@@ -1,6 +1,29 @@
 # 332DB_Webapp
 PHP based web application for displaying contents of our database. Class projject for CMPE332
 
+## To do:
+- Home
+  - no real functionality, links to other pages
+- Committees
+  - display subcommitteses and members of specific committees
+- Schedule
+  - schedule by day
+- Sponsors
+ - list of sponsors and levels
+- Jobs
+  - jobs by company
+  - all jobs
+- Attendees
+  - all attendees and their type (sublists)
+- Finances
+  - total intake of conference
+- Edit
+  THESE WILL ALL BE THEIR OWN FORMS (PHP)
+  - add attendee
+  - add to hotel room
+  - add new company
+  - switch sessions day/time
+
 ## Functional Requirements
 
 - display all members of a particular organizing sub-committee  (allow the user to choose the sub-committee from a drop down menu).
