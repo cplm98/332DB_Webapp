@@ -9,7 +9,7 @@ PHP based web application for displaying contents of our database. Class projjec
 - Schedule
   - schedule by day
 - Sponsors
- - list of sponsors and levels
+  - list of sponsors and levels
 - Jobs
   - jobs by company
   - all jobs
