@@ -4,7 +4,7 @@ PHP based web application for displaying contents of our database. Class projjec
 ## To do:
 - Home
   - no real functionality, links to other pages
-- Committees
+- Committees (Ryan)
   - display subcommitteses and members of specific committees
 - Schedule
   - schedule by day
