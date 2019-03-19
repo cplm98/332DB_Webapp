@@ -54,5 +54,59 @@
       <h1>Committees</h1>
     </div>
 
+    <form method="post">
+      <div class="form-group">
+        <label for="sel1">Please select the sub-committee group:</label>
+        <select name ="sub-committee" class="form-control w-75" id="sel1">
+          <option>Queens above 7 foot</option>
+          <option>Billionaires</option>
+        </select>
+      </div>
+      <input type="submit" name ="send"/>
+    </form>
+
+<?php
+//$sub_committees = $_POST["sub_committees"];
+
+if(isset($_POST['send'])){
+$selected_subcommittee = $_POST['sub-committee'];
+}
+
+echo "<p>$selected_subcommittee members:</p>";
+
+try{
+$pdo = new PDO('mysql:host=localhost;dbname=conference', "root", "");
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//echo "Connected successfully";
+}
+catch(PDOException $e)
+{
+  echo "Connection failed: " . $e->getMessage();
+}
+
+$sql = "select fname, lname
+from Sub_committees, Member_of, Attendees
+where registration_num = member_id and comm_name = '$selected_subcommittee' and '$selected_subcommittee' = commitee_name";
+$statement = $pdo->prepare($sql);
+$statement->execute([$sql]);
+
+echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
+
+while ($row = $statement->fetch()) {
+	echo "<tr><td>".$row["fname"]."</td><td>".$row["lname"]."</td></tr>";
+}
+$pdo = null;
+?>
+
+
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
 
 </html>
