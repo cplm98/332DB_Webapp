@@ -50,8 +50,22 @@
   <br>
   <div class="intro_text">
 
-    <div class="home_title">
+    <div class="secondary_title">
       <h1>Schedule</h1>
+      <?php
+        $driver = "mysql";
+        $host_name = 'localhost';
+        $user_name = 'root';
+        $password = '';
+        $db_name = 'conference';
+        try {
+          $db = new PDO("$driver:host=$host_name;dbname=$db_name", $user_name, $password);
+          echo 'Connected to database';
+        }
+        catch(PDOException $e) {
+          echo $e->getMessage();
+        }
+      ?>
     </div>
 
   </div>
