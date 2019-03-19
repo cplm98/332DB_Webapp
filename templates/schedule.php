@@ -22,28 +22,28 @@
   <nav class="navbar navbar-expand-sm bg-light">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link text-dark" href=Home.html>Home</a>
+        <a class="nav-link text-dark" href=Home.php>Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href=Committees.html>Committees</a>
+        <a class="nav-link text-dark" href=Committees.php>Committees</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="schedule.html">Schedule</a>
+        <a class="nav-link text-dark" href="schedule.php">Schedule</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="Sponsors.html">Sponsors</a>
+        <a class="nav-link text-dark" href="Sponsors.php">Sponsors</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="Jobs.html">Jobs</a>
+        <a class="nav-link text-dark" href="Jobs.php">Jobs</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="Attendees.html">Attendees</a>
+        <a class="nav-link text-dark" href="Attendees.php">Attendees</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="Finances.html">Finances</a>
+        <a class="nav-link text-dark" href="Finances.php">Finances</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="Edit.html">Edit</a>
+        <a class="nav-link text-dark" href="Edit.php">Edit</a>
       </li>
     </ul>
   </nav>
@@ -51,7 +51,7 @@
   <div class="intro_text">
 
     <div class="home_title">
-      <h1>Edit</h1>
+      <h1>Schedule</h1>
     </div>
 
   </div>
