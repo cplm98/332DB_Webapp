@@ -53,7 +53,31 @@
     <div class="home_title">
       <h1>Attendees</h1>
     </div>
-  </div>
+  <form method="post">
+    <div class="form-group">
+      <label for="sel1">Please select a type of attendee:</label>
+      <select name ="attendee" class="form-control w-75" id="sel1">
+        <option>Students</option>
+        <option>Professionals</option>
+        <option>Sponsors</option>
+      </select>
+    </div>
+    <input type="submit" name ="send"/>
+  </form>
+<?php
+if(isset($_POST['send'])){
+$selected_val = $_POST['attendee'];  // Storing Selected Value In Variable
+echo "You have selected : " .$selected_val;
+$dbh = new PDO('mysql:host=localhost;dbname=conference_test', "root", "");
+$rows = $dbh->query("SELECT registration_num, fname FROM attendees");
+echo "<table border=1 align=left>", "<tr><th>", "Registration Number", "</th><th>", "Name", "</th></tr>";
+while ($row = $rows->fetch()) {
+    echo "<table", "<tr><td>", $row['registration_num'], "</td><td>" , $row['fname'], "</td></tr>";
+}
+$dbh = null;
+}
+?>
+</div>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
