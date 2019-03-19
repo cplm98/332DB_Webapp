@@ -50,7 +50,7 @@
   <br>
   <div class="intro_text">
 
-    <div class="home_title">
+    <div class="secondary_title">
       <h1>Committees</h1>
     </div>
 
