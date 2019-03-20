@@ -14,6 +14,7 @@
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="..\static\home_style.css">
+  <link rel="stylesheet" type="text/css" href="..\static\Attendees.css">
 </head>
 
 <body>
@@ -62,19 +63,37 @@
         <option>Sponsors</option>
       </select>
     </div>
-    <input type="submit" name ="send"/>
+    <input class="btn-light btn" type="submit" name ="send"/>
   </form>
 <?php
 if(isset($_POST['send'])){
-$selected_val = $_POST['attendee'];  // Storing Selected Value In Variable
-echo "You have selected : " .$selected_val;
-$dbh = new PDO('mysql:host=localhost;dbname=conference_test', "root", "");
-$rows = $dbh->query("SELECT registration_num, fname FROM attendees");
-echo "<table border=1 align=left>", "<tr><th>", "Registration Number", "</th><th>", "Name", "</th></tr>";
-while ($row = $rows->fetch()) {
-    echo "<table", "<tr><td>", $row['registration_num'], "</td><td>" , $row['fname'], "</td></tr>";
-}
-$dbh = null;
+  $val = $_POST['attendee'];  // Storing Selected Value In Variable
+  echo "<table class='table w-75 table-light table-bordered' border=1 align=left>", "<tr><th>", "Registration Number", "</th><th>", "First Name", "</th><th>", "Last Name" ,"</th></tr>";
+  $dbh = new PDO('mysql:host=localhost;dbname=conferenceV2', "root", "");
+  if ($val == "Students"){
+    $rows = $dbh->query("SELECT attendees.fname, attendees.lname, attendees.registration_num From attendees, students Where students.registration_num = attendees.registration_num");
+    while ($row = $rows->fetch()) {
+        echo "<table", "<tr><td>", $row['registration_num'], "</td><td>" , $row['fname'], "</td><td>", $row['lname'] ,"</td></tr>";
+    }
+  }
+  if ($val == "Professionals"){
+    $rows = $dbh->query("SELECT attendees.fname, attendees.lname, attendees.registration_num From attendees, professional Where professional.registration_num = attendees.registration_num");
+    while ($row = $rows->fetch()) {
+        echo "<table", "<tr><td>", $row['registration_num'], "</td><td>" , $row['fname'], "</td><td>", $row['lname'] ,"</td></tr>";
+    }
+  }
+  if ($val == "Sponsors"){
+    $rows = $dbh->query("SELECT attendees.fname, attendees.lname, attendees.registration_num From attendees, sponsors Where sponsors.registration_num = attendees.registration_num");
+    while ($row = $rows->fetch()) {
+        echo "<table", "<tr><td>", $row['registration_num'], "</td><td>" , $row['fname'], "</td><td>", $row['lname'] ,"</td></tr>";
+    }
+  }
+  $dbh = null;
+// SO THE FORM WORKS, NOW JUST HAVE TO DO THE QUERY
+// $dbh = new PDO('mysql:host=localhost;dbname=conference_test', "root", "");
+// $rows = $dbh->query("SELECT registration_num, fname FROM attendees");
+// echo "<table border=1 align=left>", "<tr><th>", "Registration Number", "</th><th>", "Name", "</th></tr>";
+
 }
 ?>
 </div>
