@@ -48,28 +48,62 @@
     </ul>
   </nav>
   <br>
+  <?php
+  $driver = "mysql";
+  $host_name = 'localhost';
+  $user_name = 'root';
+  $password = '';
+  $db_name = 'conferencev2';
+  $dbh = new PDO("$driver:host=$host_name;dbname=$db_name", $user_name, $password);
+  ?>
   <div class="intro_text">
 
-    <div class="secondary_title">
+    <div class="home_title">
       <h1>Schedule</h1>
+      <h2>Day 1: Saturday</h2>
       <?php
-        $driver = "mysql";
-        $host_name = 'localhost';
-        $user_name = 'root';
-        $password = '';
-        $db_name = 'conference';
-        try {
-          $db = new PDO("$driver:host=$host_name;dbname=$db_name", $user_name, $password);
-          echo 'Connected to database';
-        }
-        catch(PDOException $e) {
+      try {
+          echo "<table class='table w-75 table-light table-bordered' border=1 align=left>", "<tr><th>", "Event Title", "</th><th>", "Start Time", "</th><th>", "End Time" ,"</th><th>", "Building" ,"</th><th>", "Room Number" ,"</th></tr>";
+          $rows = $dbh->query("SELECT * From Sessions Where  Sessions.day_= 'Saturday'");
+          while ($row = $rows->fetch()) {
+            echo "<table", "<tr><td>" , $row['title'], "</td><td>", $row['start_time'] ,"</td><td>",$row['end_time'] ,"</td><td>",$row['building'] ,"</td><td>",$row['room_number'] ,"</td><tr>";
+          }
+      }
+      catch(PDOException $e) {
           echo $e->getMessage();
-        }
+      }
       ?>
     </div>
-
   </div>
-
+  <div class="table2">
+      <?php
+      try {
+          echo "<table class='table w-75 table-light table-bordered' border=1 align=left>", "<tr><th>", "Event Title", "</th><th>", "Start Time", "</th><th>", "End Time" ,"</th><th>", "Building" ,"</th><th>", "Room Number" ,"</th></tr>";
+          $rows = $dbh->query("SELECT * From Sessions Where  Sessions.day_= 'Sunday'");
+          while ($row = $rows->fetch()) {
+            echo "<table", "<tr><td>" , $row['title'], "</td><td>", $row['start_time'] ,"</td><td>",$row['end_time'] ,"</td><td>",$row['building'] ,"</td><td>",$row['room_number'] ,"</td><tr>";
+          }
+      }
+      catch(PDOException $e) {
+          echo $e->getMessage();
+      }
+      ?>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h2>Day 2: Sunday</h2>
+  </div>
+<?php
+$dbh = null;
+ ?>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

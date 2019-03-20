@@ -50,7 +50,7 @@
   <br>
   <div class="intro_text">
 
-    <div class="secondary_title">
+    <div class="home_title">
       <h1>Jobs</h1>
     </div>
 
