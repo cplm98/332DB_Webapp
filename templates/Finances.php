@@ -51,7 +51,7 @@
   <div class="intro_text">
 
     <div class="home_title">
-      <h1>Fincances</h1>
+      <h1>Finances</h1>
     </div>
 
   </div>
