@@ -1,18 +1,13 @@
 # 332DB_Webapp
-PHP based web application for displaying contents of our database. Class projject for CMPE332
+PHP based web application for displaying contents of our database. Class project for CMPE332
 
 ## To do:
 - Home
   - no real functionality, links to other pages
 - Committees (Ryan)
   - display subcommitteses and members of specific committees
-- Schedule
-  - schedule by day
 - Sponsors
   - list of sponsors and levels
-- Jobs
-  - jobs by company
-  - all jobs
 - Attendees
   - all attendees and their type (sublists)
 - Finances
