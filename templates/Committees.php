@@ -100,7 +100,7 @@
         $statement = $pdo->prepare($sql);
         $statement->execute([$sql]);
 
-        echo "<table><tr><th>First Name</th><th>Last Name</th></tr>";
+        echo "<table class='table w-75 table-light table-bordered' border=1 align=left><tr><th>First Name</th><th>Last Name</th></tr>";
         while ($row = $statement->fetch()) {
         	echo "<tr><td>".$row["fname"]."</td><td>".$row["lname"]."</td></tr>";
         }
