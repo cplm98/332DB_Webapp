@@ -52,8 +52,7 @@
 
     <div class="home_title">
       <h1>Finances</h1>
-    </div>
-
+      <h2>Registered Attendees</h2>
   <!--show the total intake of the conference broken down by total registration amounts and total sponsorship amounts.-->
   <?php  //try to connect to database
   try{
@@ -66,8 +65,6 @@
   }
   ?>
 
-  <div class="registered_attendees">
-    <h2>Registered Attendees</h2>
     <?php
 
     echo "<table class='table w-75 table-light table-bordered' border=1 align=left>", "<tr><th>", "","</th>","<th>", "Students","</th>","<th>","Professionals", "</th><th>", "Sponsors" ,"</th></tr>";
@@ -100,32 +97,39 @@
     echo "<th>","0","</th></tr>";
 
      ?>
-    </div>
-
-
-
-     <br>
-     <div class="Sponsorships">
-       <h2>Sponsorships</h2>
-
-       <?php
-       $totalSponsor = 0;
-       $rows = $pdo->query("select comp_name, comp_level, spons_rate from company");
-       echo "<table class='table w-75 table-light table-bordered' border=1 align=left>", "<tr><th>", "Company Name","</th>","<th>","Level", "</th><th>", "Sponsorship Rate" ,"</th></tr>";
-       while ($row = $rows->fetch()) {
-         echo "<table", "<tr><td>" , $row['comp_name'], "</td><td>", $row['comp_level'] ,"</td><td>",$row['spons_rate'] ,"</td></tr>";
-         $totalSponsor = $row['spons_rate'] + $totalSponsor;
-       }
-
-       echo "<h3>Total earned through sponsorships: $ $totalSponsor</h3>";
-       ?>
-
    </div>
-  </div>
-   <?php
+ </div>
 
-   $pdo = null;
-    ?>
+
+
+    <br>
+<div class='Sponsorships'>
+   <?php
+   $totalSponsor = 0;
+   $rows = $pdo->query("select comp_name, comp_level, spons_rate from company");
+   echo "<table class='table w-75 table-light table-bordered' border=1 align=left>", "<tr><th>", "Company Name","</th>","<th>","Level", "</th><th>", "Sponsorship Rate" ,"</th></tr>";
+   while ($row = $rows->fetch()) {
+     echo "<table", "<tr><td>" , $row['comp_name'], "</td><td>", $row['comp_level'] ,"</td><td>",$row['spons_rate'] ,"</td></tr>";
+     $totalSponsor = $row['spons_rate'] + $totalSponsor;
+   }
+   echo "<br>";
+   echo "<br>";
+   echo "<br>";
+   echo "<br>";
+   echo "<br>";
+   echo "<br>";
+   echo "<br>";
+   echo "<br>";
+   echo "<br>";
+   ?>
+   <h2>Sponsorships</h2>
+</div>
+
+
+<?php
+echo "<p>Total earned through sponsorships: $$totalSponsor</p>";
+  $pdo = null;
+?>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
