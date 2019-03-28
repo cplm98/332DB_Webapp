@@ -92,10 +92,11 @@
     echo "<tr><th>", "Net Gain ($)","</th>";
     $studentsEarned = $studentStatement * 50;
     echo "<th>",$studentsEarned,"</th>";
-    $professionalsEarned = $professionalsStatement * 50;
+    $professionalsEarned = $professionalsStatement * 100;
     echo "<th>",$professionalsEarned,"</th>";
     echo "<th>","0","</th></tr>";
-
+    $netGain = $studentsEarned + $professionalsEarned;
+    echo "<p>Total earned through attendees: $$netGain";
      ?>
    </div>
  </div>
