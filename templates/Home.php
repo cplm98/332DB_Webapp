@@ -53,8 +53,21 @@
       <h1>Group 50 332 Final Project</h1>
       <p class="lead">Welcome to our presentation.</p>
       <p>Created By:</p>
-      <p>Connor Moore<br>Jack Wotherspoon<br>Ryan Kinsella</p>
+    </div>
 
+    <div class="row">
+      <div class="column">
+        <img src="..\images\jack.png" alt="Jack" style="width:100%">
+          <p class="name">Jack Wotherspoon</p>
+      </div>
+      <div class="column">
+        <img src="..\images\ryan.png" alt="Ryan" style="width:100%">
+        <p class="name">Ryan Kinsella</p>
+      </div>
+      <div class="column">
+        <img src="..\images\jack.png" alt="Connor" style="width:100%">
+        <p class="name">Connor Moore</p>
+      </div>
     </div>
   </div>
 
