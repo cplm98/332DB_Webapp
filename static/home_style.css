@@ -10,7 +10,8 @@ body{
 
 
 .name {
-  padding: 13px;
+  padding: 20px;
+  padding-left: 18%; 
 }
 * {
   box-sizing: border-box;
