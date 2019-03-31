@@ -68,7 +68,7 @@
     <?php
 
     echo "<table class='table w-75 table-light table-bordered' border=1 align=left>", "<tr><th>", "","</th>","<th>", "Students","</th>","<th>","Professionals", "</th><th>", "Sponsors" ,"</th></tr>";
-    echo "<tr><th>", "Cost ($)","</th>","<th>", "50","</th>","<th>","100", "</th><th>", "0" ,"</th></tr>";
+    echo "<tr><th>", "Cost ($)","</th>","<td>", "50","</td>","<td>","100", "</td><td>", "0" ,"</td></tr>";
     echo "<tr><th>", "Number Attending","</th>";
 
     $sqlStudents = "select count(registration_num) as numStudents from students";
@@ -78,23 +78,23 @@
     $studentStatement = $pdo->prepare($sqlStudents);
     $studentStatement->execute([$sqlStudents]);
     $studentStatement = $studentStatement->fetch()["numStudents"];
-    echo "<th>".$studentStatement."</th>";
+    echo "<td>".$studentStatement."</td>";
 
     $professionalsStatement = $pdo->prepare($sqlProfessionals);
     $professionalsStatement->execute([$sqlProfessionals]);
     $professionalsStatement=$professionalsStatement->fetch()["numProfessionals"];
-    echo "<th>".$professionalsStatement."</th>";
+    echo "<td>".$professionalsStatement."</td>";
 
     $sponsorsStatement = $pdo->prepare($sqlSponsors);
     $sponsorsStatement->execute([$sqlSponsors]);
-    echo "<th>".$sponsorsStatement->fetch()["numSponsors"]."</th></tr>";
+    echo "<td>".$sponsorsStatement->fetch()["numSponsors"]."</td></tr>";
 
     echo "<tr><th>", "Net Gain ($)","</th>";
     $studentsEarned = $studentStatement * 50;
-    echo "<th>",$studentsEarned,"</th>";
+    echo "<td>",$studentsEarned,"</td>";
     $professionalsEarned = $professionalsStatement * 100;
-    echo "<th>",$professionalsEarned,"</th>";
-    echo "<th>","0","</th></tr>";
+    echo "<td>",$professionalsEarned,"</td>";
+    echo "<td>","0","</td></tr>";
     $netGain = $studentsEarned + $professionalsEarned;
     echo "<p>Total earned through attendees: $$netGain";
      ?>
