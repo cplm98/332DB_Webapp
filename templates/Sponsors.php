@@ -48,10 +48,31 @@
     </ul>
   </nav>
   <br>
+  <?php
+  $driver = "mysql";
+  $host_name = 'localhost';
+  $user_name = 'root';
+  $password = '';
+  $db_name = 'conferencev2';
+  $dbh = new PDO("$driver:host=$host_name;dbname=$db_name", $user_name, $password);
+  ?>
   <div class="intro_text">
 
     <div class="home_title">
       <h1>Sponsors</h1>
+      <p>All Sponsoring Companies:</p>
+      <?php
+      try {
+          echo "<table class='table w-75 table-light table-bordered' border=1 align=left>", "<tr><th>", "Company Name", "</th><th>", "Sponsorship Level" ,"</th></tr>";
+          $rows = $dbh->query("SELECT comp_name, comp_level From Company");
+          while ($row = $rows->fetch()) {
+            echo "<table", "<tr><td>" , $row['comp_name'], "</td><td>", $row['comp_level'] ,"</td><tr>";
+          }
+      }
+      catch(PDOException $e) {
+          echo $e->getMessage();
+      }
+      ?>
     </div>
 
   </div>
