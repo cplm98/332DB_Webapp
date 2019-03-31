@@ -65,7 +65,7 @@
         <p class="name">Ryan Kinsella</p>
       </div>
       <div class="column">
-        <img src="..\images\jack.png" alt="Connor" style="width:300px; width:300px">
+        <img src="..\images\connor.png" alt="Connor" style="width:300px; width:300px">
         <p class="name">Connor Moore</p>
       </div>
     </div>
