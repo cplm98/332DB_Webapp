@@ -57,15 +57,15 @@
 
     <div class="row">
       <div class="column">
-        <img src="..\images\jack.png" alt="Jack" style="width:100%">
+        <img src="..\images\jack.png" alt="Jack" style="width:300px; width:300px">
           <p class="name">Jack Wotherspoon</p>
       </div>
       <div class="column">
-        <img src="..\images\ryan.png" alt="Ryan" style="width:100%">
+        <img src="..\images\ryan.png" alt="Ryan" style="width:300px; width:300px">
         <p class="name">Ryan Kinsella</p>
       </div>
       <div class="column">
-        <img src="..\images\jack.png" alt="Connor" style="width:100%">
+        <img src="..\images\jack.png" alt="Connor" style="width:300px; width:300px">
         <p class="name">Connor Moore</p>
       </div>
     </div>
