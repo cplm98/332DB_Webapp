@@ -52,7 +52,36 @@
 
     <div class="home_title">
       <h1>Edit</h1>
+      <form method="post">
+        <div class="form-group">
+          <label for="sel1">Please select a type of attendee:</label>
+          <select name ="edit_select" class="form-control w-75" id="sel1">
+            <option>Add Student</option>
+            <option>Add Sponsored Attendee</option>
+            <option>Add Professional Attendee</option>
+            <option value="add_Sp">Add Sponsoring Company</option>
+            <option value="del_Sp">Delete Sponsoring Company</option>
+            <option value="edit_ses">Edit Session</option>
+          </select>
+        </div>
+        <input class="btn-light btn" type="submit" name ="send"/>
+      </form>
     </div>
+    <?php
+    if (isset($_POST['send']) && $_POST['edit_select'] == "Add Student")
+      header("Location: edit_sub\add_student.php");
+    if (isset($_POST['send']) && $_POST['edit_select'] == "Add Sponsored Attendee")
+      header("Location: edit_sub\add_spA.php");
+    if (isset($_POST['send']) && $_POST['edit_select'] == "Add Professional Attendee")
+      header("Location: edit_sub\add_proA.php");
+    if (isset($_POST['send']) && $_POST['edit_select'] == "add_Sp")
+      header("Location: edit_sub\add_spC.php");
+    if (isset($_POST['send']) && $_POST['edit_select'] == "del_Sp")
+      header("Location: edit_sub\del_spC.php");
+    if (isset($_POST['send']) && $_POST['edit_select'] == "edit_ses")
+      header('Location: edit_sub\edit_sesh.php');
+    ?>
+
 
   </div>
 
