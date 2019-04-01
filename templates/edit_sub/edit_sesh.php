@@ -75,23 +75,14 @@
               ?>
           </select>
         </label>
-      </div>
-      <input class="btn-light btn" type="submit" name="sel_sub"/>
-    </form>
-    <?php if(isset($_POST['sel_sub'])):
-      $temp = $_POST['sel_name'];
-      echo $temp;
-      echo'
-      <div>
-        <form method="post">
           <div class="form-group w-50">
             <label for="email">Start Time</label>
             <input class="form-control" id="email" name="s_time" placeholder="Enter New Start Time">
             <label for="fname">End Time</lable>
             <input class="form-control" id="fname" name="e_time" placeholder="New End Time">
             <label for="sel1">Please Select a New Room:</label>
-              <select name ="room_num" class="form-control" id="sel1">';
-
+              <select name ="room_num" class="form-control" id="sel1">
+            <?php
             $dbh = new PDO('mysql:host=localhost;dbname=conferenceV2', "root", "");
             $rows = $dbh->query("SELECT building, room_number From location");
             if (empty($rows)){
@@ -105,8 +96,8 @@
                 }
               }
             }
-
-            echo  '</select>
+            ?>
+              </select>
               <div class="form-group">
                 <label for="sel1">Select Day:</label>
                 <select name ="day" class="form-control w-75" id="sel1">
@@ -119,14 +110,14 @@
           </div>
           <input class="btn-light btn" type="submit" name="time_sub"/>
         </form>
-      </div>';
-     endif;
+      </div>
+    <?php
     if(isset($_POST['time_sub'])){
-      echo "here";
       $dbh = new PDO('mysql:host=localhost;dbname=conferenceV2', "root", "");
       $str = explode(" Room ", $_POST['room_num']);
+      echo $_POST['sel_name'];
       $sql = "UPDATE session SET day_ = ?, start_time = ?, end_time = ?, building = ?, room_number = ? WHERE title=?";
-      $dbh->prepare($sql)->execute([$_POST['day'], $_POST['s_time'], $_POST['e_time'], $str[0], $str[1], $temp]);
+      $dbh->prepare($sql)->execute([$_POST['day'], $_POST['s_time'], $_POST['e_time'], $str[0], $str[1], $_POST['sel_name']]);
     }
     ?>
    </div>
