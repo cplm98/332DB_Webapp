@@ -141,7 +141,7 @@
       if(isset($_POST['sendRoom'])){
         $selected_room = $_POST['rooms'];
         //echo "<br>";
-        echo "<h3>Memebers of room $selected_room:</h3>";
+        echo "<h3>Members of room $selected_room:</h3>";
         //$pdo = new PDO('mysql:host=localhost;dbname=conferenceV2', "root", "");
         $rows = $pdo->query("SELECT fname, lname
         from hotel_room, students, attendees
