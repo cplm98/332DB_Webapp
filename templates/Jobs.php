@@ -70,7 +70,7 @@
           <option disbled selected>Filter..</option>
           <option> All Jobs</option>
           <?php
-              $rows = $dbh->query("SELECT comp_name FROM jobs");
+              $rows = $dbh->query("SELECT distinct comp_name FROM jobs");
               if (empty($rows)){
                 echo "<option>No Companies have jobs posted!</option>";
               }

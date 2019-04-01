@@ -78,7 +78,7 @@
           <div class="form-group w-50">
             <label for="email">Start Time</label>
             <input class="form-control" id="email" name="s_time" placeholder="Enter New Start Time">
-            <label for="fname">End Time</lable>
+            <label for="fname">End Time</label>
             <input class="form-control" id="fname" name="e_time" placeholder="New End Time">
             <label for="sel1">Please Select a New Room:</label>
               <select name ="room_num" class="form-control" id="sel1">
@@ -116,7 +116,7 @@
       $dbh = new PDO('mysql:host=localhost;dbname=conferenceV2', "root", "");
       $str = explode(" Room ", $_POST['room_num']);
       echo $_POST['sel_name'];
-      $sql = "UPDATE session SET day_ = ?, start_time = ?, end_time = ?, building = ?, room_number = ? WHERE title=?";
+      $sql = "UPDATE sessions SET day_ = ?, start_time = ?, end_time = ?, building = ?, room_number = ? WHERE title=?";
       $dbh->prepare($sql)->execute([$_POST['day'], $_POST['s_time'], $_POST['e_time'], $str[0], $str[1], $_POST['sel_name']]);
     }
     ?>
