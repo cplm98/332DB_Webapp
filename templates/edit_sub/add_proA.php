@@ -69,13 +69,20 @@
         <input class="btn-light btn" type="submit" name="prof_sub"/>
       </form>
       <?php
+      $reg=$_POST['reg_num'];
       if(isset($_POST['prof_sub'])){
         $dbh = new PDO('mysql:host=localhost;dbname=conferenceV2', "root", "");
-        $sql = "INSERT INTO attendees (registration_num, fname, lname, email, rate) VALUES (?,?,?,?,?)";
-        $dbh->prepare($sql)->execute([$_POST['reg_num'], $_POST['fname'], $_POST['lname'], $_POST['email'], 100]);
-        $sql = "INSERT INTO professional (registration_num, Company_Name) VALUES (?,?)";
-        echo $_POST['comp_name'];
-        $dbh->prepare($sql)->execute([$_POST['reg_num'], $_POST['comp_name']]);
+        $check=$dbh->QUERY("SELECT registration_num from attendees where registration_num=$reg ");
+        if($check->rowCount() == 0){
+          $sql = "INSERT INTO attendees (registration_num, fname, lname, email, rate) VALUES (?,?,?,?,?)";
+          $dbh->prepare($sql)->execute([$_POST['reg_num'], $_POST['fname'], $_POST['lname'], $_POST['email'], 50]);
+          $sql = "INSERT INTO professional (registration_num, Company_Name) VALUES (?,?)";
+          echo $_POST['comp_name'];
+          $dbh->prepare($sql)->execute([$_POST['reg_num'], $_POST['comp_name']]);
+        }
+        else{
+          echo "Registration Number already exists.";
+        }
         $dbh = null;
       }
       ?>

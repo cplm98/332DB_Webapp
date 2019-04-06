@@ -56,12 +56,12 @@
         <div class="form-group w-50">
           <label for="email">Email address</label>
           <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
-          <label for="fname">First Name</lable>
+          <label for="fname">First Name</label>
           <input class="form-control" id="fname" name="fname" placeholder="First Name">
-          <label for="lname">Last Name</lable>
+          <label for="lname">Last Name</label>
           <input class="form-control" id="lname" name="lname" placeholder="First Name">
           <!-- Might wanna generate this behind the scenes -->
-          <label for="reg_num">Registration Number</lable>
+          <label for="reg_num">Registration Number</label>
           <input class="form-control" id="reg_num" name="reg_num" placeholder="Registration Number">
           <div class="form-group">
             <label for="sel1">Please Select a Room:</label>
@@ -91,10 +91,18 @@
     <?php
     if(isset($_POST['student_sub'])){
       $dbh = new PDO('mysql:host=localhost;dbname=conferenceV2', "root", "");
-      $sql = "INSERT INTO attendees (registration_num, fname, lname, email, rate) VALUES (?,?,?,?,?)";
-      $dbh->prepare($sql)->execute([$_POST['reg_num'], $_POST['fname'], $_POST['lname'], $_POST['email'], 50]);
-      $sql = "INSERT INTO students (registration_num, room_number) VALUES (?,?)";
-      $dbh->prepare($sql)->execute([$_POST['reg_num'], $_POST['room_num']]);
+      $reg=$_POST['reg_num'];
+      $check=$dbh->QUERY("SELECT registration_num from attendees where registration_num=$reg ");
+
+      if($check->rowCount() == 0){
+        $sql = "INSERT INTO attendees (registration_num, fname, lname, email, rate) VALUES (?,?,?,?,?)";
+        $dbh->prepare($sql)->execute([$_POST['reg_num'], $_POST['fname'], $_POST['lname'], $_POST['email'], 50]);
+        $sql = "INSERT INTO students (registration_num, room_number) VALUES (?,?)";
+        $dbh->prepare($sql)->execute([$_POST['reg_num'], $_POST['room_num']]);
+      }
+      else{
+        echo "Registration Number already exists.";
+      }
       $dbh = null;
     }
     ?>
